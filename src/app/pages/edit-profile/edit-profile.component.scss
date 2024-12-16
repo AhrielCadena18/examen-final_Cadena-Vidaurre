@@ -1,0 +1,96 @@
+// Variables de color
+$background-color: #f7f7f7;   // Fondo suave
+$primary-color: #a29bfe;      // Lila pastel
+$secondary-color: #ffeaa7;    // Amarillo pastel
+$highlight-color: #81ecec;    // Verde agua para resaltar
+$card-bg: #ffffff;           // Fondo blanco para el formulario
+$text-color: #2d3436;        // Gris oscuro para el texto
+$border-radius: 10px;        // Bordes redondeados
+$box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); // Sombra sutil para los formularios
+
+$transition-time: 0.3s ease;
+
+// Estilos generales del formulario
+.form-control-group label{
+    background-color: #a29bfe;
+    color: white;
+    border-radius: 20px;
+}
+
+.container-fluid {
+  background-color: $background-color;
+  padding: 30px;
+
+
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .col-12 {
+    background-color: $card-bg;
+    padding: 20px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      
+      .form-control-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        color: $text-color;
+        
+        
+        label {
+          font-size: 1rem;
+          color: $background-color;
+        }
+        
+        .form-control {
+          padding: 10px;
+          font-size: 1rem;
+          color: black;
+          border: 1px solid #ccc;
+          border-radius: $border-radius;
+          background-color: #f7f7f7;
+
+        .form-control-group-name{
+            color: black;
+        } 
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+          }
+        }
+      }
+
+      .btn {
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        border-radius: $border-radius;
+        cursor: pointer;
+        transition: background-color $transition-time, transform $transition-time;
+
+        &:hover {
+          transform: scale(1.05);
+          background-color: darken($primary-color, 10%);
+        }
+
+        &:active {
+          background-color: darken($primary-color, 15%);
+        }
+      }
+    }
+  }
+}

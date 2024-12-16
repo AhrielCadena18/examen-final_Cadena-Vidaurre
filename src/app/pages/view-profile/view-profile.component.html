@@ -1,0 +1,8 @@
+<h1>PERFIL</h1>
+<p><strong>Nombre:</strong> {{data?.name}}</p>
+<p><strong>Email:</strong> {{data?.email}}</p>
+<p><strong>Phone</strong> {{data?.phone}}</p>
+<p><strong>UID</strong> {{data?.id}}</p>
+
+
+<app-card [data]="post" *ngFor="let post of postsFiltrados"></app-card>

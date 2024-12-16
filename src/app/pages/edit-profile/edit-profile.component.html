@@ -1,0 +1,31 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="profileForm"
+      (ngSubmit)="onEdit()">
+        <div class="form-control-group">
+          <label for="">Email</label>
+          <input
+          formControlName="email" class="form-control" type="text">
+        </div>
+
+         <div class="form-control-group">
+          <label for="name">Nombre</label>
+          <input id="name" formControlName="name" class="form-control" type="text" />
+        </div>
+
+        <div class="form-control-group">
+          <label for="phone">Teléfono</label>
+          <input id="phone" formControlName="phone" class="form-control" type="text" />
+        </div>
+
+     
+
+        <button type="submit" class="btn btn-primary">
+          Actualizar Perfil
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

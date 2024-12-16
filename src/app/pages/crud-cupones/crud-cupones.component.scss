@@ -1,0 +1,112 @@
+// Variables para colores y tamaños
+$background-color: #f3f4f6; // Fondo general
+$card-color: #ffffff; // Fondo de las tarjetas
+$text-color: #4a4a4a; // Color de texto principal
+$primary-color: #a29bfe; // Color principal (pastel lila)
+$secondary-color: #ffeaa7; // Color secundario (amarillo pastel)
+$accent-color: #81ecec; // Color de acento (verde agua)
+$border-radius: 12px;
+$box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+$transition: 0.3s ease;
+
+// Estilos generales
+body {
+  background-color: $background-color;
+  font-family: Arial, sans-serif;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.text-center {
+  text-align: center;
+  color: $primary-color;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: $card-color;
+  background-color: $primary-color;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: $transition;
+
+  &.btn-success {
+    background-color: $accent-color;
+
+  }
+
+  &.btn-primary {
+    background-color: $primary-color;
+  }
+
+  &.btn-danger {
+    background-color: $secondary-color;
+    color: $text-color;
+  }
+
+  &:hover {
+    box-shadow: $box-shadow;
+    opacity: 0.9;
+  }
+}
+
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $card-color;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+    color: #4a4a4a;
+  }
+
+  thead {
+    background-color: $primary-color;
+    color: $card-color;
+
+    th {
+      font-weight: bold;
+    }
+  }
+
+  tbody tr {
+    &:nth-child(even) {
+      background-color: lighten($background-color, 7%);
+    }
+
+    &:hover {
+      background-color: $accent-color;
+      color: $card-color;
+    }
+  }
+
+  tfoot {
+    td {
+      font-weight: bold;
+    }
+  }
+}
+
+button {
+  margin: 0 5px;
+}
+.btn-success{
+  margin-bottom: 20px;
+}
+
+

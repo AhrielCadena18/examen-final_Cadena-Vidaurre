@@ -1,0 +1,282 @@
+// Variables de color
+$background-color: #f7f7f7;   // Fondo suave
+$primary-color: #a29bfe;      // Lila pastel
+$secondary-color: #ffeaa7;    // Amarillo pastel
+$highlight-color: #81ecec;    // Verde agua para resaltar
+$card-bg: #ffffff; 
+$button-color: #fab1a0;          // Fondo blanco para las tarjetas
+$text-color: #2d3436;        // Gris oscuro para el texto
+$border-radius: 10px;        // Bordes redondeados
+$box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); // Sombra sutil para las tarjetas
+
+$transition-time: 0.3s ease;
+
+// Estilo global para las tarjetas
+.card {
+  background-color: $card-bg;
+  padding: 15px;
+  margin-bottom: 70px;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+  }
+
+  .card-body {
+    padding: 15px;
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $primary-color;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 1rem;
+      color: $text-color;
+      margin-bottom: 5px;
+    }
+
+    .card-description {
+      font-size: 1rem;
+      color: $text-color;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .card-text-span {
+      color: $primary-color;
+      font-weight: bold;
+    }
+
+    // Estilo para las etiquetas de categorías
+    .card-text span {
+      padding: 5px;
+      background-color: $highlight-color;
+      color: black;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-right: 6px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    // Botones
+    .btn {
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color $transition-time, transform $transition-time;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &.btn-primary {
+        background-color: $primary-color;
+        color: $primary-color;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+
+      &.btn-danger {
+        background-color: $button-color;
+        color: $primary-color;
+
+        &:hover {
+          background-color: darken($button-color, 10%);
+        }
+      }
+
+      &.btn-warning {
+        background-color: $secondary-color;
+        color: $text-color;
+
+        &:hover {
+          background-color: darken($secondary-color, 10%);
+        }
+      }
+
+      .fa-heart,
+      .fa-cart-shopping {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+// Estilos para la interfaz de carrito flotante
+.floating-cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: $primary-color;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    background: darken($primary-color, 10%);
+  }
+
+  .cart-count {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: $button-color;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 0.5rem;
+    min-width: 20px;
+    text-align: center;
+  }
+}
+
+// Estilos para el modal del carrito
+.cart-modal {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 150%;
+  background: #121212;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 999;
+
+  &.open {
+    right: 0;
+  }
+
+  .cart-header {
+    padding: 10px 15px;
+    background: $primary-color;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+
+  .cart-items {
+    padding: 15px;
+    overflow-y: auto;
+    max-height: calc(100% - 120px); /* Descontando header y footer */
+  }
+
+  .cart-footer {
+    padding: 10px 15px;
+    background: #191414;
+    display: flex;
+    justify-content: center;
+
+    .checkout-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: $primary-color;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+
+      &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// Estilos para los ítems del carrito
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cart-item-image img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-name {
+  font-weight: bold;
+}
+
+.cart-item-price {
+  margin-top: 5px;
+  color: $text-color;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-selector button {
+  padding: 5px;
+  font-size: 16px;
+  background-color: #6f6f6f;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.quantity-selector input {
+  width: 40px;
+  text-align: center;
+  margin: 0 5px;
+  color: $text-color;
+}
+
+.remove-btn {
+  background: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: darken($button-color, 10%);
+  }
+}

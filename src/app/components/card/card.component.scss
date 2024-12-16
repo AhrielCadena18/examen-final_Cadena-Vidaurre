@@ -1,0 +1,152 @@
+// Variables para colores y tamaños
+$background-color: #f9f9f9;
+$card-color: #ffffff;
+$text-color: #4a4a4a;
+$primary-color: #a29bfe; // Lila pastel
+$secondary-color: #ffeaa7; // Amarillo pastel
+$accent-color: #81ecec; // Verde agua
+$button-color: #fab1a0; // Botón rosa pastel
+$border-radius: 12px;
+$box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+$transition: 0.3s ease;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+// Card general
+.card {
+  background-color: $card-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  transition: transform $transition, box-shadow $transition;
+  margin: 1rem 0;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .card-body {
+    padding: 1rem;
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0.5rem 0;
+      color: $primary-color;
+      cursor: pointer;
+      transition: color $transition;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: $text-color;
+      margin: 0.5rem 0;
+
+      span {
+        background-color: $accent-color;
+        color: white;
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+        border-radius: $border-radius / 2;
+        margin-right: 0.4rem;
+      }
+
+      .card-text-span {
+        font-weight: bold;
+        color: black;
+      }
+      
+    }
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    margin: 10px;
+    font-size: 0.9rem;
+    border-radius: $border-radius / 2;
+    cursor: pointer;
+    transition: background-color $transition, transform $transition;
+
+    &-primary {
+      background-color: $primary-color;
+      color: rgb(0, 0, 0);
+
+      &:hover {
+        background-color: lighten($primary-color, 10%);
+      }
+    }
+
+    &-danger {
+      background-color: $button-color;
+      color: white;
+
+      &:hover {
+        background-color: lighten($button-color, 10%);
+      }
+    }
+
+    &-info {
+      background-color: $accent-color;
+      color: rgb(0, 0, 0);
+
+      &:hover {
+        background-color: lighten($accent-color, 10%);
+      }
+    }
+
+    &-warning {
+      background-color: $secondary-color;
+      color: $text-color;
+
+      &:hover {
+        background-color: lighten($secondary-color, 10%);
+      }
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .fa-heart {
+    font-size: 1.2rem;
+
+    &.fa-regular {
+      color: $text-color;
+    }
+
+    &.fa-solid {
+      color: $primary-color;
+    }
+  }
+}
+
+// Responsive ajustes para optimizar diseño en pantallas pequeñas
+@media (max-width: 768px) {
+  .card {
+    margin: 0.5rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

@@ -1,0 +1,139 @@
+// Variables para colores y tamaños
+$background-color: #f3f4f6; // Fondo general
+$card-color: #ffffff; // Fondo de las tarjetas
+$text-color: #4a4a4a; // Color de texto principal
+$primary-color: #a29bfe; // Color principal (pastel lila)
+$secondary-color: #ffeaa7; // Color secundario (amarillo pastel)
+$accent-color: #81ecec; // Color de acento (verde agua)
+$border-radius: 12px;
+$box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+$transition: 0.3s ease;
+
+// Fuente general
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+  color: $text-color;
+}
+
+// Encabezado principal
+.col-12 {
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+}
+
+// Caja de búsqueda
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+
+  .search-input {
+    width: 100%;
+    max-width: 450px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: $border-radius;
+    background-color: $card-color;
+    box-shadow: $box-shadow;
+    outline: none;
+    transition: $transition;
+    color: black;
+
+    &::placeholder {
+      color: darken($text-color, 20%);
+    }
+
+    &:focus {
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+ 
+// Filtros
+.filter-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.5rem auto;
+
+  .filter-chip {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: $primary-color;
+    color: white;
+    border-radius: $border-radius;
+    cursor: pointer;
+    box-shadow: $box-shadow;
+    transition: transform $transition, background-color $transition;
+
+    &.active {
+      background-color: $secondary-color;
+      color: $text-color;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      background-color: lighten($primary-color, 10%);
+    }
+  }
+}
+
+// Tarjetas
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+
+  .col-xs-12,
+  .col-sm-6,
+  .col-md-4 {
+    max-width: 100%;
+
+    @media (min-width: 576px) {
+      max-width: calc(50% - 1rem);
+    }
+
+    @media (min-width: 768px) {
+      max-width: calc(33.333% - 1rem);
+    }
+  }
+
+  app-card {
+    display: block;
+    background-color: $card-color;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    padding: 1rem;
+    transition: transform $transition, box-shadow $transition;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Tab bar (si se usa)
+app-tabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $card-color;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}

@@ -1,0 +1,211 @@
+// Variables para colores y tamaños
+$background-color: #f9f9f9;
+$primary-color: #a29bfe; // Lila pastel
+$secondary-color: #ffeaa7; // Amarillo pastel
+$accent-color: #81ecec; // Verde agua
+$text-color: #4a4a4a;
+$card-color: #ffffff;
+$danger-color: #fab1a0; // Rosa pastel
+$border-radius: 12px;
+$box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+$transition: 0.3s ease;
+
+// Estilos del carrito flotante
+.floating-cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: $primary-color;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: $box-shadow;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform $transition, background-color $transition;
+
+  &:hover {
+    transform: scale(1.1);
+    background: lighten($primary-color, 10%);
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: $accent-color;
+    color: white;
+    font-size: 0.7rem;
+    padding: 3px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+}
+
+// Modal del carrito
+.cart-modal {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background: $background-color;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  transition: right $transition;
+  z-index: 999;
+
+  &.open {
+    right: 0;
+  }
+
+  .cart-header {
+    padding: 10px 15px;
+    background: $primary-color;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+
+  .cart-items {
+    padding: 15px;
+    overflow-y: auto;
+    max-height: calc(100% - 120px); 
+  }
+  .cart-items p{
+    color: black;
+  }
+
+  .cart-footer {
+    padding: 10px 15px;
+    background: $primary-color;
+    display: flex;
+    justify-content: center;
+
+    .checkout-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: $accent-color;
+      color: white;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background $transition;
+
+      &:hover {
+        background: lighten($accent-color, 10%);
+      }
+
+      &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: $card-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  .cart-item-image img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: $border-radius;
+  }
+
+  .cart-item-details {
+    flex-grow: 1;
+
+    .cart-item-name {
+      font-weight: bold;
+      color: $text-color;
+    }
+
+    .cart-item-price {
+      margin-top: 5px;
+      color: $primary-color;
+    }
+  }
+
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+    button {
+      padding: 5px;
+      font-size: 16px;
+      background-color: #6f6f6f;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      border-radius: $border-radius;
+
+      &:hover {
+        background-color: lighten(#6f6f6f, 10%);
+      }
+    }
+
+    input {
+      width: 40px;
+      text-align: center;
+      margin: 0 5px;
+      color: black;
+      border: 1px solid #ccc;
+      border-radius: $border-radius;
+      outline: none;
+
+      &:focus {
+        border-color: $accent-color;
+      }
+    }
+  }
+
+  .remove-btn {
+    background: $danger-color;
+    color: white;
+    border: none;
+    border-radius: $border-radius;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background $transition;
+
+    &:hover {
+      background: lighten($danger-color, 10%);
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: gray;
+      margin-right: 8px;
+    }
+    
+    .cart-item-price {
+      display: flex;
+      gap: 5px;
+    }
+  }
+}

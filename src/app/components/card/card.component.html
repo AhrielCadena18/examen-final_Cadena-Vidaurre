@@ -1,0 +1,72 @@
+<div class="card"  *ngIf="itIsTicket==false">
+  <img class="card-img-top" src="{{data.photo}}" alt="Card image cap" routerLink="/view-event/{{data.id}}">
+
+  <div class="card-body">
+    <p class="card-text"><span style="padding: 3px; background: grey; margin-right: 4px; border-radius: 8px" *ngFor="let tag of data.category">#{{tag}}</span> </p>
+    <h5 class="card-title" routerLink="/view-event/{{data.id}}">{{data.name}}</h5>
+
+    <p class="card-text" *ngIf="data.outstanding==true">Destacado</p>
+
+    <p class="card-text">Fecha: {{data.date}} </p>
+    <p class="card-text">Hora: {{data.time}}</p>
+    <p class="card-text">Precio: <span class="card-text-span">{{data.price}}</span> Bs.</p>
+    <p class="card-text" *ngIf="data.discount_percentage >0" >Precio con descuento ({{data.discount_percentage}}%): <span class="card-text-span">{{data.price * (((100-data.discount_percentage)/100))}}</span> Bs.</p>
+
+    <p class="card-text" routerLink="/view-profile/{{data.owner_user.id}}">Creador: {{data.owner_user.name}}</p>
+
+
+    
+
+
+    <div [ngClass]="{'btn-primary': checkLike()===false,
+    'btn-danger': checkLike()===true}" class="btn m-2" (click)="setLike()">
+      <i *ngIf="checkLike()===false" class="fa-regular fa-heart"></i>
+      <i *ngIf="checkLike()===true" class="fa-solid fa-heart"></i>
+    </div>
+  
+
+    <div class="btn btn-info" routerLink="/event-detail/{{ data.id }}">Ver más</div>
+    <div class="btn btn-info"   *ngIf="showEditButton==true" routerLink="/edit-event/{{data.id}}">Editar</div>
+    <div class="btn btn-danger"   *ngIf="showEditButton==true" (click)="borrarEvento()" >Borrar</div>
+
+
+   
+    <div class="btn btn-warning" *ngIf="showEditButton==false" (click)="addToCart()">
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+      </div>
+    
+</div>
+
+
+<div class="card" *ngIf="itIsTicket==true">
+  <img class="card-img-top" src="{{data.event.photo}}" alt="Card image cap" routerLink="/view-event/{{data.event.id}}">
+
+  <div class="card-body">
+    <p class="card-text"><span style="padding: 3px; background: grey; margin-right: 4px; border-radius: 8px" *ngFor="let tag of data.category">#{{tag}}</span> </p>
+    <h5 class="card-title" routerLink="/view-event/{{data.event.id}}">{{data.event.name}}</h5>
+
+    <p class="card-text">Fecha De Compra: {{getFormattedDate(data.date)}} </p>
+    <p class="card-text">Cantidad: {{data.quantity}}</p>
+
+    <p class="card-text">Total: <span class="card-text-span">{{data.total}}</span> Bs.</p>
+    <p class="card-text">Número de Contacto: {{data.event.contact_number}}</p>
+
+
+    
+
+
+    <div [ngClass]="{'btn-primary': checkLike()===false,
+    'btn-danger': checkLike()===true}" class="btn m-2" (click)="setLike()">
+      <i *ngIf="checkLike()===false" class="fa-regular fa-heart"></i>
+      <i *ngIf="checkLike()===true" class="fa-solid fa-heart"></i>
+    </div>
+  
+
+
+
+
+   
+      </div>
+    
+</div>

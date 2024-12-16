@@ -1,0 +1,29 @@
+[
+  {
+    "cod": "polera1",
+    "tipo": "ropa",
+    "precio": 100,
+    "stock": 20,
+    "fecha": "2024-10-20",
+    "presentaciones": [
+      {
+        "codigo": "p1a",
+        "color": "azul",
+        "talla": "s",
+        "stock": 10,
+        "ventas": [
+          {
+            "nro": 1,
+            "fecha": "2024-10-21",
+            "cantidad": 2
+          },
+          {
+            "nro": 2,
+            "fecha": "2024-10-21",
+            "cantidad": 2
+          }
+        ]
+      }
+    ]
+  }
+]

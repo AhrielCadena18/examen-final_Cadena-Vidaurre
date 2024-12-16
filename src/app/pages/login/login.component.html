@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 mt-3">
+      <h1>Iniciar sesión</h1>
+
+      <form [formGroup]="loginForm"
+      (ngSubmit)="onLogin()">
+        <div class="form-control-group">
+          <label for="">Email</label>
+          <input
+          formControlName="email" class="form-control" type="text">
+        </div>
+        <div class="form-control-group">
+          <label for="">Password</label>
+          <input formControlName="password" class="form-control" type="text">
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Iniciar sesión
+        </button>
+        <button [routerLink]="'/register'" class="btn btn-primary">
+          Registrarme
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

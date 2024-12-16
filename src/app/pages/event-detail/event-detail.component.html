@@ -1,0 +1,34 @@
+<app-cart></app-cart>
+
+<div *ngIf="eventData" class="card">
+
+  <img class="card-img-top" [src]="eventData.photo" alt="{{ eventData.name }}">
+
+  <div class="card-body">
+    <h5 class="card-title">{{ eventData.name }}</h5>
+    <p class="card-text">
+      <span *ngFor="let tag of eventData.category">
+        #{{ tag }}
+      </span>
+    </p>
+    <p class="card-text">Creador: {{ eventData.owner_user.name }}</p>
+    <p class="card-text">Fecha: {{ eventData.date }}</p>
+    <p class="card-text">Hora: {{ eventData.time }}</p>
+    <p class="card-text">Precio: <span class="card-text-span">{{ eventData.price }}</span> Bs.</p>
+    <p class="card-text">Contacto: {{ eventData.contact_number }}</p>
+    <p class="card-text">Descripción: </p>
+    <p class="card-description"> {{eventData.description}} </p>
+    <p class="card-text">Ubicación: {{ eventData.ubication }}</p>
+    <p class="card-text"  *ngIf="eventData.discount_percentage >0">Descuento: {{ eventData.discount_percentage }}% <span class="card-text-span">{{eventData.price * (((100-eventData.discount_percentage)/100))}}</span> Bs.</p>
+
+    <div [ngClass]="{'btn-primary': checkLike()===false,
+      'btn-danger': checkLike()===true}" class="btn m-2" (click)="setLike()">
+      <i *ngIf="checkLike()===false" class="fa-regular fa-heart"></i>
+      <i *ngIf="checkLike()===true" class="fa-solid fa-heart"></i>
+    </div>
+
+    <div class="btn btn-warning" (click)="addToCart()">
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+  </div>
+</div>

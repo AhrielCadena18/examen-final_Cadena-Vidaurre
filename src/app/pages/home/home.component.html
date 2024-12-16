@@ -1,0 +1,30 @@
+<div class="col-12 mt-3">
+  <app-crud-cupones></app-crud-cupones>
+  <h1>Eventos</h1>
+  <app-cart></app-cart>
+</div>
+
+
+<div class="search-box">
+  <input 
+  type="text" 
+  class="search-input" 
+  placeholder="Buscar por nombre o categoría..." 
+  (input)="onSearch($event)" />
+</div>
+
+<div class="filter-box mb-4">
+  <div class="filter-chip" 
+       [ngClass]="{'active': this.tagsMarcados.indexOf(tag) >= 0}" 
+       (click)="selectUserTag(tag)" 
+       *ngFor="let tag of tags">
+    #{{tag}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let post of postsFiltrados">
+    <app-card [data]="post"></app-card>
+  </div>
+</div>
+

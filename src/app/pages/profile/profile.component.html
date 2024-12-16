@@ -1,0 +1,33 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <h1>Perfil</h1>
+    <p><strong>Nombre:</strong> {{ auth.profile?.name }}</p>
+    <p><strong>Email:</strong> {{ auth.profile?.email }}</p>
+    <p><strong>Teléfono:</strong> {{ auth.profile?.phone }}</p>
+    <p><strong>UID:</strong> {{ auth.profile?.id }}</p>
+  </div>
+
+  <div class="profile-actions">
+    <button class="btn btn-primary" [routerLink]="'/edit-profile'">Editar Perfil</button>
+    <button class="btn btn-primary" [routerLink]="'/new-post'">Subir Evento</button>
+    <button class="btn btn-danger" (click)="auth.logout()">Cerrar Sesión</button>
+  </div>
+
+  <div class="profile-switch">
+    <button 
+      class="switch-btn" 
+      [class.active]="seeMyTickets" 
+      (click)="switchView('tickets')">Mis Boletos</button>
+    <button 
+      class="switch-btn" 
+      [class.active]="seeMyEvents" 
+      (click)="switchView('events')">Mis Eventos</button>
+  </div>
+
+  <div class="posts-grid">
+    <div class="post-card" *ngFor="let post of postsFiltrados">
+      <app-card [data]="post" *ngIf="itIsTicket==false" [showEditButton]="true"></app-card>
+      <app-card [data]="post" *ngIf="itIsTicket==true" [itIsTicket]="true"></app-card>
+    </div>
+  </div>
+</div>

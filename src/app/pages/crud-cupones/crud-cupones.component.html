@@ -1,0 +1,39 @@
+<div class="container">
+    <h1 class="text-center">Cupones</h1>
+    <button class="btn btn-success" (click)="agregarCuponModal()">Agregar Cupón</button>
+    <table class="responsive-table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cod. Cupon</th>
+          <th scope="col">Fecha Expiración</th>
+          <th scope="col">Descuento Porcentaje</th>
+          <th scope="col">Descuento Monto Fijo</th>
+          <th scope="col">Controles</th>
+        </tr>
+      </thead>
+      <tfoot>
+    
+      </tfoot>
+      <tbody>
+        <tr *ngFor="let cupon of cuponesItems">
+          <th scope="row">{{cupon.name}}</th>
+          <td data-title="Código">{{cupon.Code}}</td>
+
+          <td data-title="Fecha Expiración" >{{ getFormattedDate(cupon.expiration_date)  }}</td>
+          <td data-title="Descuento Porcentaje" >{{cupon.percentage_discount}}</td>
+          <td data-title="Descuento Monto Fijo" >{{cupon.fixed_discount}}</td>
+
+          <td data-title="Controles">
+       
+                <button class="btn btn-primary"(click)="editarCuponModal(cupon)" >Editar</button>
+                <button class="btn btn-danger" (click)="eliminarCuponModal(cupon)">Eliminar</button>
+   
+
+            
+          </td>
+        </tr>
+    
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,34 @@
+<div class="container-fluid app-wrapper">
+  <div class="app-navbar">
+    <div class="app-header">
+      <!--  <button class="app-header-btn-menu" (click)="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button> -->
+    </div>
+    
+
+    <div class="row">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<div class="app-menu" *ngIf="isMenuOpen">
+  <a routerLink="/home" routerLinkActive="active"  class="navbar-btn">
+    <i class="fa-solid fa-house"></i>
+    <span>Home</span>
+  </a>
+
+  <!-- <a routerLink="/register" routerLinkActive="active" class="navbar-btn">
+    <span>Register</span>
+  </a> -->
+ 
+  <a *ngIf="auth.isLogued===true" routerLink="/profile" routerLinkActive="active" class="navbar-btn">
+    <i class="fa-solid fa-user"></i>
+    <span>Profile</span>
+  </a>
+  <a  *ngIf="auth.isLogued===false" routerLink="/login" routerLinkActive="active" class="navbar-btn">
+    <i class="fa-solid fa-right-to-bracket"></i>
+    <span>Login</span>
+  </a>
+
+</div>

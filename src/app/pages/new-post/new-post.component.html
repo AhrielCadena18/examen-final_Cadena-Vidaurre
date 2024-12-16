@@ -1,0 +1,149 @@
+<!-- <p>el id del usuario logueado es: {{auth.profile?.id}}</p> -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col mt-3">
+      <h1>Evento</h1>
+      <form [formGroup]="formulario" (ngSubmit)="storePost()">
+        <div class="form-control-group">
+          <label for="">Nombre del Evento</label>
+          <input formControlName="name" class="form-control" type="text" />
+        </div>
+
+        <img
+          style="width: 300px; margin-bottom: 30px; display: block"
+          *ngIf="id"
+          src="{{ post?.photo }}"
+          alt=""
+        />
+
+        <div class="form-control-group">
+          <label for="">Imagen</label>
+          <input formControlName="photo" class="form-control" type="text" />
+        </div>
+
+        <!--
+
+        <div class="form-control-group">
+          <label for="">Imagen (subir o pegar enlace)</label>
+          <input formControlName="photo" class="form-control" type="text" placeholder="Pega el enlace de la imagen" />
+
+          <div class="mt-3">
+            <input type="file" (change)="onFileSelected($event)" />
+            <button 
+              type="button" 
+              class="btn btn-success mt-2" 
+              [disabled]="!selectedFile" 
+              (click)="uploadFile()"
+            >
+              Subir Imagen
+            </button>
+          </div>
+        </div>
+      -->
+
+
+        <div class="form-control-group">
+          <label for="">Precio</label>
+          <input formControlName="price" class="form-control" type="number" />
+        </div>
+
+        <div class="form-control-group">
+          <label for="categories">Categorías</label>
+          
+          <!-- Dropdown para seleccionar categorías -->
+          <div class="d-flex">
+            <select #selectedCategory class="form-control" style="flex: 1; margin-right: 10px;">
+              <option value="" disabled selected>Seleccione una categoría</option>
+              <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+
+
+            <button 
+              type="button" 
+              class="btn btn-success"
+              (click)="addCategory(selectedCategory.value)"
+            >
+              Agregar
+            </button>
+          </div>
+        
+          <!-- Mostrar categorías seleccionadas -->
+          <div *ngFor="let category of categoriesFormArray.controls; let i = index" class="mt-2">
+            <span class="badge badge-primary">
+              {{ category.value }}
+              <button 
+                type="button" 
+                class="btn btn-sm btn-danger ml-2"
+                (click)="removeCategory(i)"
+              >
+                &times;
+              </button>
+            </span>
+          </div>
+        </div>
+        
+
+          
+
+        <div class="form-control-group">
+          <label for="">Fecha</label>
+          <input formControlName="date" class="form-control" type="date" />
+        </div>
+        <div class="form-control-group">
+          <label for="">Hora</label>
+          <input formControlName="time" class="form-control" type="time" />
+        </div>
+
+        <div class="form-control-group">
+          <label for="">Descripción</label>
+          <textarea
+            formControlName="description"
+            class="form-control"
+            type=""
+          ></textarea>
+        </div>
+
+        <div class="form-control-group">
+          <label for="">Ubicación</label>
+          <input formControlName="ubication" class="form-control" type="text" />
+        </div>
+
+        <div class="form-control-group">
+          <label for="">Número de Contacto</label>
+          <input formControlName="contact_number" class="form-control" type="text" />
+        </div>
+
+
+        <div class="form-control-group">
+          <label for="">Porcentaje Descuento (%)</label>
+          <input formControlName="discount_percentage" class="form-control" type="number"/>
+        </div>
+
+
+        <div class="form-control-group-switch">
+          <label for="" style="color: blueviolet;">Destacado</label>
+          <div>
+            <label class="switch">
+              <input formControlName="outstanding" class="form-control" type="checkbox" [defaultValue]="false"/>
+              <span class="slider round"></span>
+            </label>
+          </div>
+   
+
+ 
+        </div>
+
+
+
+        <button 
+          class="btn btn-primary btn-block mt-4" 
+          type="submit"
+        >
+        <label for=""></label>
+
+          {{ id ? "Editar Evento" : "Publicar Evento" }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,147 @@
+// Variables para colores y tamaños
+$background-color: #f8f9fa;
+$card-color: #ffffff;
+$text-color: #4a4a4a;
+$primary-color: #a29bfe; // Lila pastel
+$secondary-color: #ffeaa7; // Amarillo pastel
+$accent-color: #81ecec; // Verde agua
+$danger-color: #fab1a0; // Rosa pastel
+$border-radius: 12px;
+$box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+$transition: 0.3s ease;
+
+// Contenedor principal
+.profile-container {
+  padding: 2rem;
+  background-color: $background-color;
+  color: $text-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  max-width: 800px;
+  margin: 2rem auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+// Encabezado del perfil
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #4a4a4a;
+
+    strong {
+      color: $accent-color;
+    }
+  }
+}
+
+// Acciones del perfil
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border-radius: $border-radius / 2;
+    cursor: pointer;
+    transition: background-color $transition, transform $transition;
+
+    &-primary {
+      background-color: $primary-color;
+      color: white;
+
+      &:hover {
+        background-color: lighten($primary-color, 10%);
+      }
+    }
+
+    &-danger {
+      background-color: $danger-color;
+      color: white;
+
+      &:hover {
+        background-color: lighten($danger-color, 10%);
+      }
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Cambiador de vistas
+.profile-switch {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .switch-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    background-color: $card-color;
+    color: $text-color;
+    border: 1px solid $primary-color;
+    border-radius: $border-radius / 2;
+    cursor: pointer;
+    transition: background-color $transition, transform $transition;
+
+    &.active {
+      background-color: $primary-color;
+      color: white;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      background-color: lighten($primary-color, 10%);
+    }
+  }
+}
+
+// Grid de publicaciones
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+
+  .post-card {
+    app-card {
+      display: block;
+      background-color: $card-color;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+      transition: transform $transition, box-shadow $transition;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+// Responsividad
+@media (max-width: 768px) {
+  .profile-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .profile-switch {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

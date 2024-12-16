@@ -1,0 +1,67 @@
+<div class="floating-cart" (click)="toggleCart()">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span class="cart-count" *ngIf="cartItems.length > 0">{{ cartItems.length }}</span>
+</div>
+
+<div class="cart-modal" [class.open]="cartOpen">
+  <div class="cart-header">
+    <h2>Tu Carrito</h2>
+    <button class="close-btn" (click)="toggleCart()">✖</button>
+  </div>
+  <div class="cart-items">
+    <p *ngIf="cartItems.length === 0">Tu carrito está vacío</p>
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <div class="cart-item-image">
+        <img [src]="item.photo" alt="{{ item.name }}" />
+      </div>
+      <div class="cart-item-details">
+        <p class="cart-item-name">{{ item.name }}</p>
+        <p class="cart-item-price">{{ item.price | currency }}</p>
+        
+        <span *ngIf="item.discount_percentage > 0" style="color: black;">
+          <p>
+            Precio con descuento ({{ item.discount_percentage }}%): 
+            <span class="card-text-span" style="color: black;">
+              {{ item.price * (1 - item.discount_percentage / 100) }} Bs.
+            </span>
+          </p>
+        </span>
+
+        <div class="quantity-selector">
+          <button (click)="decreaseQuantity(item)">-</button>
+          <input type="number" [(ngModel)]="item.quantity" min="1" (ngModelChange)="updateQuantity(item)" />
+          <button (click)="increaseQuantity(item)">+</button>
+        </div>
+        <button class="remove-btn" (click)="removeFromCart(item)">Quitar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cupón de descuento -->
+  <div class="cupon-section">
+    <input type="text" [(ngModel)]="cuponCode" placeholder="Ingresa tu cupón" />
+    <button (click)="applyCupon()">Aplicar cupón</button>
+    
+    <p *ngIf="cuponValid === false" class="error-message">
+      El cupón no es válido o ha expirado. Asegúrate de que el código sea correcto y esté dentro de su fecha de validez.
+    </p>
+    
+    <div *ngIf="cuponValid === true" class="success-message">
+      <p>¡Cupón aplicado con éxito!</p>
+      <p>Detalles del cupón:</p>
+      <ul>
+        <li><strong>Código:</strong> {{ appliedCupon.code }}</li>
+        <li><strong>Descuento:</strong> {{ appliedCupon.discountType === 'percentage' ? appliedCupon.discount + '%' : appliedCupon.discount + ' Bs.' }}</li>
+        <li><strong>Fecha de expiración:</strong> {{ appliedCupon.expirationDate | date: 'shortDate' }}</li>
+      </ul>
+      <p>
+        <strong>Nuevo precio total:</strong>
+        {{ getDiscountedTotal() | currency }}
+      </p>
+    </div>
+  </div>
+
+  <div class="cart-footer">
+    <button class="checkout-btn" (click)="checkout()" [disabled]="cartItems.length === 0">Pagar</button>
+  </div>
+</div>
