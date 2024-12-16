@@ -1,0 +1,25 @@
+[
+    {
+      "title": "Inception",
+      "director": "Christopher Nolan",
+      "year": "2010",
+      "gender": "Sci-Fi",
+      "duration": 148,
+      "producer": "Warner Bros.",
+      "synopsis": "A skilled thief is given a chance at redemption if he can successfully perform inception on a powerful businessman.",
+      "trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0",
+      "poster": "https://m.media-amazon.com/images/I/51oDjqLp7XL._AC_SY679_.jpg"
+    },
+
+    {
+        "title": "Shutter Island",
+        "director": "Christopher Nolan",
+        "year": "2007",
+        "gender": "Terror",
+        "duration": 148,
+        "producer": "Warner Bros.",
+        "synopsis": "A psicotic detective thief is given a chance at redemption if he can successfully perform inception on a powerful businessman.",
+        "trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0",
+        "poster": "https://m.media-amazon.com/images/I/51oDjqLp7XL._AC_SY679_.jpg"
+      }
+  ]

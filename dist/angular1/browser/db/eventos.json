@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Rock Fest 2024",
+    "description": "Un festival de rock con las mejores bandas locales e internacionales.",
+    "address": "Estadio Municipal, Av. Principal 123",
+    "city": "La Paz",
+    "country": "Bolivia",
+    "stockTickets": 5000,
+    "date": "2024-12-15",
+    "hour": "18:00",
+    "category": "Concierto",
+    "image": "https://example.com/images/rockfest.jpg",
+    "coordinates": {
+      "latitude": -16.500000,
+      "longitude": -68.150000
+    }
+  },
+  {
+    "title": "Musical Broadway Nights",
+    "description": "Una noche mágica con los mejores musicales de Broadway.",
+    "address": "Teatro Nacional, Calle Cultura 456",
+    "city": "Santa Cruz",
+    "country": "Bolivia",
+    "stockTickets": 1500,
+    "date": "2025-01-10",
+    "hour": "20:00",
+    "category": "Musical",
+    "image": "https://example.com/images/broadway.jpg",
+    "coordinates": {
+      "latitude": -17.800000,
+      "longitude": -63.166667
+    }
+  },
+  {
+    "title": "Feria Artesanal de Invierno",
+    "description": "Evento gratuito con artesanías locales y productos de temporada.",
+    "address": "Plaza Central, Av. Libertad",
+    "city": "Cochabamba",
+    "country": "Bolivia",
+    "stockTickets": 0,
+    "date": "2025-06-25",
+    "hour": "10:00",
+    "category": "Evento Público",
+    "image": "https://example.com/images/feria_invierno.jpg",
+    "coordinates": {
+      "latitude": -17.383333,
+      "longitude": -66.150000
+    }
+  }
+]
